@@ -1,0 +1,65 @@
+[
+  {
+    "trxDate"           : "2016-02-09 08:12:23.0",
+    "buyerTrxHistory"   : "Initiate payment",
+    "buyerTrxStatus"    : "Payment Pending",
+    "merchantTrxHistory": null,
+    "merchantTrxStatus" : null
+  },
+  {
+    "trxDate"           : "2016-02-09 08:13:17.0",
+    "buyerTrxHistory"   : "Payment received by system",
+    "buyerTrxStatus"    : "Payment Completed",
+    "merchantTrxHistory": "Payment from buyer received by system",
+    "merchantTrxStatus" : "Payment On Hold"
+  },
+  {
+    "trxDate"           : "2016-02-19 09:16:02.0",
+    "buyerTrxHistory"   : "Items have been delivered by merchant",
+    "buyerTrxStatus"    : "Waiting For Items",
+    "merchantTrxHistory": "Waiting for buyer to receive the items",
+    "merchantTrxStatus" : "Item Shipped"
+  },
+  {
+    "trxDate"           : "2016-02-19 11:02:50.0",
+    "buyerTrxHistory"   : null,
+    "buyerTrxStatus"    : null,
+    "merchantTrxHistory": "Claim Payment",
+    "merchantTrxStatus" : "Payment Processing"
+  },
+  {
+    "trxDate"           : "2016-02-19 11:02:50.0",
+    "buyerTrxHistory"   : "Items received by buyer",
+    "buyerTrxStatus"    : "Transaction Complete",
+    "merchantTrxHistory": "Items received by buyer",
+    "merchantTrxStatus" : "Shipment Complete"
+  },
+  {
+    "trxDate"           : "2016-02-22 04:25:08.0",
+    "buyerTrxHistory"   : null,
+    "buyerTrxStatus"    : null,
+    "merchantTrxHistory": "Payment has been sent to your account",
+    "merchantTrxStatus" : "Payment Completed"
+  },
+  {
+    "trxDate"           : "2016-02-22 07:37:43.0",
+    "buyerTrxHistory"   : "Items have been delivered by merchant",
+    "buyerTrxStatus"    : "Waiting For Items",
+    "merchantTrxHistory": "Waiting for buyer to receive the items",
+    "merchantTrxStatus" : "Item Shipped"
+  },
+  {
+    "trxDate"           : "2016-02-22 07:48:07.0",
+    "buyerTrxHistory"   : "Items received by buyer",
+    "buyerTrxStatus"    : "Transaction Complete",
+    "merchantTrxHistory": "Items received by buyer",
+    "merchantTrxStatus" : "Shipment Complete"
+  },
+  {
+    "trxDate"           : "2016-02-22 07:48:08.0",
+    "buyerTrxHistory"   : null,
+    "buyerTrxStatus"    : null,
+    "merchantTrxHistory": "Claim Payment",
+    "merchantTrxStatus" : "Payment Processing"
+  }
+]

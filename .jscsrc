@@ -1,0 +1,11 @@
+{
+  "preset": "airbnb",
+  "disallowSpaceAfterObjectKeys": {
+    "allExcept": [
+      "multiline"
+    ]
+  },
+  "fileExtensions": [
+    ".js"
+  ]
+}

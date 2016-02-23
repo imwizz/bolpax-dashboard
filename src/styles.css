@@ -1,0 +1,39 @@
+body {
+    padding-top: 131px;
+}
+
+.audiowide {
+    font-family: "Audiowide", cursive;
+}
+
+.banner-title,
+.sidebar .nav-link,
+.table > tbody > tr.clickable {
+    cursor: pointer;
+}
+
+.form-signin {
+    width: 330px;
+}
+
+.sidebar {
+    position:         fixed;
+    top:              131px;
+    bottom:           0;
+    left:             0;
+    background-color: #373a3c;
+    border-right:     1px solid #eee;
+}
+
+.main {
+    background-color: #fff;
+    font-size:        small;
+}
+
+.main .modal {
+    font-size: medium;
+}
+
+.notifyjs-corner {
+    line-height: normal;
+}
