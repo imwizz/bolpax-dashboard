@@ -11,17 +11,28 @@ import { Modal } from '../../common/modal';
 
 const Toolbar = React.createClass({
   handleRefundAuthorize() {
-    this.refundModal_.hide();
+    const { props, refundModal_ } = this;
+    const { selectedObject, onForceUpdateRequested } = props;
+    const message = refundModal_.getMessage();
+
+    refundModal_.hide();
 
     $.ajax({
       url       : apiUrls.refundPayments.update,
       type      : 'POST',
       beforeSend: () => spinner.spin(document.querySelector('.main')),
       data      : {
-        issueId: this.props.selectedObject.issueId,
+        fromAdmin    : 'Y', // hardcode
+        message      : message,
+        issueId      : selectedObject.issueId,
+        issueStatusId: 4, // hardcode
+
+        //issueId: this.props.selectedObject.issueId,
       },
       success   : (data) => {
-        console.log(data);
+
+        //console.log(data);
+        onForceUpdateRequested();
         $.notify('Refund authorized', 'success');
       },
 
@@ -35,25 +46,28 @@ const Toolbar = React.createClass({
   },
 
   handleReplyIssue() {
-    const { props, replyModal_, replyTextArea_ } = this;
+    const { props, replyModal_ } = this;
     const { selectedObject } = props;
-    const message = replyTextArea_.value;
+    const message = replyModal_.getMessage();
 
     replyModal_.hide();
 
-    //console.log(message);
     $.ajax({
       url       : apiUrls.replyIssues.update,
       type      : 'POST',
       beforeSend: () => spinner.spin(document.querySelector('.main')),
       data      : {
-        fromAdmin    : 'Y',
+        fromAdmin    : 'Y', // hardcode
         message      : message,
         issueId      : selectedObject.issueId,
-        issueStatusId: ISSUE_STATUS_IDS[selectedObject.lastStatus],
+        issueStatusId: 2, // hardcode
+
+        //issueStatusId: ISSUE_STATUS_IDS[selectedObject.lastStatus],
       },
       success   : (data) => {
-        console.log(data);
+
+        //console.log(data);
+        onForceUpdateRequested();
         $.notify('Message successfully sent', 'success');
       },
 
@@ -83,12 +97,12 @@ const Toolbar = React.createClass({
           </button>
           <Modal
             id="refund-modal"
-            title="Refund authorization"
+            title={`Refund authorization issue #${selectedObject.issueId}`}
             commandName="Refund"
             onCommandOk={this.handleRefundAuthorize}
             ref={c => this.refundModal_ = c}
           >
-            {`Are you sure you want to refund transaction #${selectedObject.trxId}?`}
+            {/* `Are you sure you want to refund transaction #${selectedObject.trxId}?` */}
           </Modal>
 
           <button
@@ -101,24 +115,11 @@ const Toolbar = React.createClass({
           </button>
           <Modal
             id="reply-modal"
-            title="Reply issue"
+            title={`Reply issue #${selectedObject.issueId}`}
             commandName="Send message"
             onCommandOk={this.handleReplyIssue}
             ref={c => this.replyModal_ = c}
           >
-            <form>
-              <div className="form-group">
-                <label htmlFor="message-text" className="form-control-label">
-                  Message:
-                </label>
-                <textarea
-                  className="form-control"
-                  id="message-text"
-                  rows="3"
-                  ref={c => this.replyTextArea_ = c}
-                />
-              </div>
-            </form>
           </Modal>
         </div>
       </div>

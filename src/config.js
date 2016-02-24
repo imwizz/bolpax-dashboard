@@ -22,7 +22,7 @@ let apiUrls = {
     read: '/issue/detailcomplete',
   },
   refundPayments    : {
-    update: '/trx/refund',
+    update: '/issue/insertTrail',
   },
   replyIssues       : {
     update: '/issue/insertTrail',

@@ -10,8 +10,12 @@ const Modal = React.createClass({
     $(this.modal_).modal('hide');
   },
 
+  getMessage() {
+    return this.textArea_.value;
+  },
+
   render() {
-    const { id, title, commandName, onCommandOk, children } = this.props;
+    const { id, title, commandName, onCommandOk } = this.props;
 
     return (
       <div className="modal fade" id={id} tabIndex="-1" role="dialog" ref={el => this.modal_ = el}>
@@ -24,7 +28,19 @@ const Modal = React.createClass({
               <h4 className="modal-title" id={`${id}Label`}>{title}</h4>
             </div>
             <div className="modal-body">
-              {children}
+              <form>
+                <div className="form-group">
+                  <label htmlFor="message-text" className="form-control-label">
+                    Message:
+                  </label>
+                <textarea
+                  className="form-control"
+                  id="message-text"
+                  rows="3"
+                  ref={el => this.textArea_ = el}
+                />
+                </div>
+              </form>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary"

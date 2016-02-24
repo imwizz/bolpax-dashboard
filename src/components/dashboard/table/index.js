@@ -78,6 +78,7 @@ const Table = React.createClass({
 
     if (this.props.tableType === MAIN) {
       this.loadDataFromServer();
+      setInterval(this.loadDataFromServer, this.props.pollInterval);
     }
   },
 
@@ -97,11 +98,9 @@ const Table = React.createClass({
           [paramKey]: selectedObject.id,
         },
         success   : (data) => {
-          console.log(data);
-
-          //this.setState({
-          //  data,
-          //});
+          this.setState({
+            data,
+          });
         },
 
         error   : (jqXHR, textStatus, errorThrown) =>
@@ -122,10 +121,14 @@ const Table = React.createClass({
   },
 
   componentDidUpdate() {
-    $(this.table_).bootstrapTable({
-      height: 400,
-      search: true,
-    });
+
+    if (this.props.tableType === MAIN) {
+      $(this.table_)
+        .bootstrapTable({
+          height: 400,
+          search: true,
+        });
+    }
   },
 
   render() {

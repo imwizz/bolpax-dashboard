@@ -15,6 +15,11 @@ const MainContent = React.createClass({
     });
   },
 
+  // HACK: It's hackathon :X
+  handleForceUpdateRequested() {
+    this.forceUpdate();
+  },
+
   getInitialState() {
     return {
       selectedObject: {},
@@ -29,7 +34,10 @@ const MainContent = React.createClass({
     return (
       <div className="col-sm-10 col-sm-offset-2 main">
         {(dataType === DATA_TYPE.ISSUE) ?
-         <MainTable.Toolbar selectedObject={selectedObject} /> : false}
+         <MainTable.Toolbar
+           selectedObject={selectedObject}
+           onForceUpdateRequested={this.handleForceUpdateRequested}
+         /> : false}
         <MainTable
           dataType={dataType}
           tableType={TABLE_TYPE.MAIN}
