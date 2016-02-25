@@ -18,6 +18,7 @@ const MainContent = React.createClass({
   // HACK: It's hackathon :X
   handleForceUpdateRequested() {
     this.forceUpdate();
+    this.mainTable_.loadDataFromServer();
   },
 
   getInitialState() {
@@ -44,6 +45,7 @@ const MainContent = React.createClass({
           selectedObject={selectedObject}
           onSelectedObjectChanged={this.handleSelectedObjectChanged}
           pollInterval={pollInterval}
+          ref={c => this.mainTable_ = c}
         />
         <DetailContent dataType={dataType} selectedObject={selectedObject} />
       </div>

@@ -18,18 +18,20 @@ const Toolbar = React.createClass({
     refundModal_.hide();
 
     $.ajax({
-      url       : apiUrls.refundPayments.update,
-      type      : 'POST',
-      beforeSend: () => spinner.spin(document.querySelector('.main')),
-      data      : {
+      url        : apiUrls.refundPayments.update,
+      type       : 'POST',
+      beforeSend : () => spinner.spin(document.querySelector('.main')),
+      contentType: 'text/plain',
+      dataType   : 'text',
+      data       : JSON.stringify({
         fromAdmin    : 'Y', // hardcode
         message      : message,
         issueId      : selectedObject.issueId,
         issueStatusId: 4, // hardcode
 
         //issueId: this.props.selectedObject.issueId,
-      },
-      success   : (data) => {
+      }),
+      success    : (data) => {
 
         //console.log(data);
         onForceUpdateRequested();
@@ -47,24 +49,26 @@ const Toolbar = React.createClass({
 
   handleReplyIssue() {
     const { props, replyModal_ } = this;
-    const { selectedObject } = props;
+    const { selectedObject, onForceUpdateRequested } = props;
     const message = replyModal_.getMessage();
 
     replyModal_.hide();
 
     $.ajax({
-      url       : apiUrls.replyIssues.update,
-      type      : 'POST',
-      beforeSend: () => spinner.spin(document.querySelector('.main')),
-      data      : {
+      url        : apiUrls.replyIssues.update,
+      type       : 'POST',
+      beforeSend : () => spinner.spin(document.querySelector('.main')),
+      contentType: 'text/plain',
+      dataType   : 'text',
+      data       : JSON.stringify({
         fromAdmin    : 'Y', // hardcode
         message      : message,
         issueId      : selectedObject.issueId,
         issueStatusId: 2, // hardcode
 
         //issueStatusId: ISSUE_STATUS_IDS[selectedObject.lastStatus],
-      },
-      success   : (data) => {
+      }),
+      success    : (data) => {
 
         //console.log(data);
         onForceUpdateRequested();
