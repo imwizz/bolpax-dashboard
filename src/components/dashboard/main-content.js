@@ -21,6 +21,10 @@ const MainContent = React.createClass({
     this.mainTable_.loadDataFromServer();
   },
 
+  handleRepaintMainTableRequested() {
+    this.mainTable_.repaintBootstrapTable();
+  },
+
   getInitialState() {
     return {
       selectedObject: {},
@@ -47,7 +51,11 @@ const MainContent = React.createClass({
           pollInterval={pollInterval}
           ref={c => this.mainTable_ = c}
         />
-        <DetailContent dataType={dataType} selectedObject={selectedObject} />
+        <DetailContent
+          dataType={dataType}
+          selectedObject={selectedObject}
+          onRepaintMainTableRequested={this.handleRepaintMainTableRequested}
+        />
       </div>
     );
   },

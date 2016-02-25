@@ -64,6 +64,10 @@ const Table = React.createClass({
     //});
   },
 
+  repaintBootstrapTable() {
+    $(this.table_).bootstrapTable('resetWidth');
+  },
+
   handleClick(object) {
     this.props.onSelectedObjectChanged(object);
   },
@@ -128,6 +132,8 @@ const Table = React.createClass({
           height: 400,
           search: true,
         });
+    } else {
+      this.props.onRepaintMainTableRequested();
     }
   },
 

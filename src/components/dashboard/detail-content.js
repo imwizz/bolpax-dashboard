@@ -6,7 +6,7 @@ import React from 'react';
 import { TABLE_TYPE } from '../../constants';
 import { Table as DetailTable } from './table';
 
-const DetailContent = ({ dataType, selectedObject }) => {
+const DetailContent = ({ dataType, selectedObject, onRepaintMainTableRequested }) => {
   const detailVisible = !_.isEmpty(selectedObject);
 
   return (
@@ -21,6 +21,7 @@ const DetailContent = ({ dataType, selectedObject }) => {
         dataType={dataType}
         tableType={TABLE_TYPE.DETAIL}
         selectedObject={selectedObject}
+        onRepaintMainTableRequested={onRepaintMainTableRequested}
       />
     </div>
   );
