@@ -1,9 +1,5 @@
 # bolpax-administrator
 
-*This repo is now deprecated in favour of [the corresponding IMWIZZ repo](https://github.com/imwizz/bolpax-dashboard).*
-
----
-
 Bolpax administrator frontend web UI for 
 [Mandiri Hackathon](http://mandirihackathon.id) 2015-2016.
 
@@ -45,7 +41,7 @@ As The Beatles said:
 
 * Checkout the repo, `cd` to project directory, and setup dependencies:
 ```bash
-$ npm i rimraf updtr webpack webpack-dev-server -g
+$ npm i rimraf updtr webpack webpack-dev-server jscs -g
 $ npm run install:clean
 ```
 
@@ -62,8 +58,7 @@ $ npm run build
 Then, simply drop all files under `dist` directory to the production server.
 
 ## TODO
-- [ ] Authentication flow
-- [ ] Connect to backend
+- [x] Connect to backend
 
 ## Author
 Glenn Dwiyatcita ([@dwiyatci](http://tiny.cc/dwiyatci))
